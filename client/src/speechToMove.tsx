@@ -49,53 +49,60 @@ export default function SpeechToMove({
   squareMap.set("283", "a3");
   squareMap.set("2a3", "a3");
 
-
   squareMap.set("castle", "O-O");
 
   let temp = parentToChild;
   temp = temp.replaceAll(".", "");
   temp = temp.replaceAll(",", "");
+  temp = temp.toLowerCase();
 
   let piece: string = "";
   let square: string = "";
 
   let keys = Array.from(squareMap.keys());
-  console.log(keys)
+  let values = Array.from(squareMap.values());
+  console.log(keys);
   //let move = (piece + square) as string;
-  console.log(temp)
+  console.log(temp);
   keys.forEach((element) => {
-    if (temp.toLowerCase().includes(element)){
-      temp = temp.toLowerCase().replace(element,squareMap.get(element))
+    if (temp.includes(element)) {
+      temp = temp.replace(element, squareMap.get(element));
+      //square = squareMap.get(element);
     }
-  })
-  console.log(temp)
+  });
+  console.log(temp);
   let words = temp.split(" ");
+  console.log(words);
   words.forEach((element) => {
-    if (squareMap.has(element.toLowerCase())){
-      square = squareMap.get(element.toLowerCase());
+    if (squareMap.has(element) || values.includes(element)) {
+      if (squareMap.has(element)) {
+        square = squareMap.get(element);
+      } else {
+        square = element;
+      }
+      // console.log("money money");
     }
-    if (piecesMap.has(element.toLowerCase())) {
+    if (piecesMap.has(element)) {
       //console.log(element);
-      piece = piecesMap.get(element.toLowerCase());
+      piece = piecesMap.get(element);
     }
-    if (SQUARES.includes(element.toLowerCase() as Square)) {
+    if (SQUARES.includes(element as Square)) {
       //console.log(element);
 
-      square = element.toLowerCase();
+      square = element;
     }
   });
 
-  if(piece === "" && square.includes("8")){
-    square += "Q"
+  if (piece === "" && square.includes("8")) {
+    square += "Q";
   }
   let move = (piece + square) as string;
 
-
-  //console.log(move);
+  console.log(move);
 
   return (
     <div>
-      {parentToChild }
+      {parentToChild}
       {chessMoveTransfer(move)}
     </div>
   );
