@@ -6,7 +6,8 @@ import { ClientToServerEvents, ServerToClientEvents } from "./Context";
 import { Server } from "http";
 
 const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
-  "http://localhost:3001"
+//  "http://localhost:3001"
+    "https://blindchess.fun"
 );
 
 function ChatRoom() {
