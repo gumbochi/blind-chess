@@ -5,7 +5,8 @@ import { Move } from "chess.js";
 
 
 const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
-  "http://localhost:3001"
+ // "http://localhost:3001"
+ "http://blindchess.fun"
 );
 
 function useSocketIO() {
