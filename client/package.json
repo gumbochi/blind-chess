@@ -25,9 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PUBLIC_URL=http://143.198.155.59/ && react-scripts start",
-    "build": "set PUBLIC_URL=http://143.198.155.59/ && react-scripts build",
-    "build-localhost": "set PUBLIC_URL=http://143.198.155.59/ && react-scripts build",
+    "start": "SET HOST=143.198.155.59 && react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
