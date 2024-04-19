@@ -1,3 +1,0 @@
-web: node index.js
-web: node index.tsx
-web: npm client
