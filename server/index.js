@@ -11,8 +11,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        //origin: "http://localhost:3000",
-        //methods: ["GET", "POST"]
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+        credentials: true
     },
 });
 
@@ -43,6 +44,6 @@ io.on("connection", (socket) => {
 
 
 
-server.listen(process.env.PORT || 3001, () => {
-    console.log("Server listening on port " + (process.env.PORT || "3001"));
+server.listen(parseInt(process.env.PORT), /*|| 3001,*/ () => {
+    console.log("Server listening on port localhost:4000" /*+ (process.env.PORT || "3001"*/);
 });
